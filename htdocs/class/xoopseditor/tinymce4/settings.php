@@ -3,12 +3,10 @@
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
  which is considered copyrighted (c) material of the original comment or credit authors.
-
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 */
-
 /**
  *  TinyMCE 4.x settings for XOOPS
  *
@@ -22,67 +20,62 @@
  * @author          Laurent JEN <dugris@frxoops.org>
  * @version         $Id: settings.php 8290 2011-11-15 01:57:18Z beckmi $
  */
-
 return array(
     "selector" => "textarea",
     "theme"     => "modern",
+
+// default skin
+// "skin"       => "lightgray",
+// "skin_url"       => "/class/xoopseditor/tinymce4/external_skins/charcoal",
+// "skin_url"       => "/class/xoopseditor/tinymce4/external_skins/pepper-grinder",
+// "skin_url"       => "/class/xoopseditor/tinymce4/external_skins/tundora",
+// "skin_url"       => "/class/xoopseditor/tinymce4/external_skins/tundora",
+// "skin_url"       => "/class/xoopseditor/tinymce4/external_skins/xenmce",
+
+
     // language code of the default language pack to use with TinyMCE. These codes are in ISO-639-1 format
     "language" => "en",
-
     /* possible values exemple, get from: http://wiki.moxiecode.com/examples/tinymce/installation_example_13.php */
     "mode" => "exact",
-    "convert_urls" => false,
-
+//    "convert_urls" => false,
 //    "force_p_newlines" => true,
-    "forced_root_blocks"=> false,
+    "forced_root_block" => false,
     "force_hex_style_colors" => true,
-
     // to prevent new line after tags (really useful with Xoops)
 //    "apply_source_formatting" => false,
-
     // get more W3C compatible code, since font elements are deprecated
     "convert_fonts_to_spans" => true,
-
     // XHTML: list elements UL/OL will be converted to valid XHTML
     "fix_list_elements" => true,
-
     // XHTML: table elements will be moved outside paragraphs or other block elements
 //    "fix_table_elements" => true, //Removed in 3.4, this is now the default behavior.
-
     // XHTML strict: attributes gets converted into CSS style attribute
 //    "inline_styles" => true, //This option is enabled by default as of 3.0a1.
-
     // if true, some accessibility focus will be available to all buttons: you will be able to tab through them all
     "accessibility_focus" => true,
-
     // if true, some accessibility warnings will be presented to the user
     "accessibility_warnings" => true,
+    //image_advtab: True/false option if the advanced tab should be displayed or not.
+    "image_advtab" => true,
 
-    // resize options
-//    "theme_advanced_resize_horizontal" =>  false,
-//    "theme_advanced_resizing" =>  true,
-
-    // load plugins
-    "plugins" => "xoopsimagemanager,xoopsquote,xoopscode,xoopsemotions,xoopsmlcontent," . // Xoops plugins
-                 "advlist,anchor,autolink,autoresize,charmap,code,directionality,emoticons,".
-                 "fullscreen,hr,image,insertdatetime,layer,legacyoutput,link,lists,media,nonbreaking,".
-                 "noneditable,pagebreak,paste,preview,print,save,searchreplace,spellchecker,tabfocus,table,template,textcolor,visualblocks,".
-                 "visualchars,wordcount",
+    // Display or not the menu bar"
+    "menubar" => true,
 
 
-    "exclude_plugins" => "autosave,bbcode,contextmenu,example,fullpage",
+// load plugins
+    "plugins" => "advlist,autolink,lists,link,image,preview,hr,anchor,".
+                 "searchreplace,wordcount,visualblocks,visualchars,code,fullscreen,".
+                 "insertdatetime,media,nonbreaking,save,table,contextmenu,directionality,".
+                 "emoticons,template,paste,textcolor,".
+                 "xoops_quote,xoops_code,xoops_tagextgal,".
+                 "filemanager,responsivefilemanager,youtube,qrcode,alignbtn,chartextbtn",
 
-//    "theme_advanced_toolbar_location" => "top",
-//    "theme_advanced_toolbar_align" => "left",
-//    "theme_advanced_statusbar_location" => "bottom",
+//  "exclude_plugins" => "autosave,bbcode,example,fullpage",
+//  "content_css" => "editor_xoops.css",
 
-    //"content_css" => "editor_xoops.css",
-
-    "toolbar1" => "insertfile undo redo | styleselect | bold italic underline strikethrough sub sup| forecolor backcolor emoticons | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent",
-    "toolbar2" => "print preview |  copy paste | formatselect fontselect fontsizeselect",
-    "toolbar3" => "removeformat styleprops | link unlink anchor image media | charmap nonbreaking hr emoticons pagebreak searchreplace | inserttable | visualchars | insertdate inserttime | preview fullscreen code ",
-    "toolbar4" => "xoopsimagemanager,xoopsemotions,xoopsquote,xoopscode,xoopsmlcontent",
-
+    "toolbar1" => "chartext align table | forecolor backcolor bullist numlist | styleselect formatselect",
+    "toolbar2" => "responsivefilemanager image media youtube | link unlink anchor | qrcode emoticons hr xoops_emoticons xoops_quote xoops_code xoops_tagextgal template",
+    "toolbar3" => "undo redo preview fullscreen removeformat visualblocks code",
 
     // Full XHTML rule set
     "valid_elements" => ""

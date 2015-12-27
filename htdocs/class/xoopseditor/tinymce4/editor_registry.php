@@ -10,7 +10,6 @@
  * @author          Taiwen Jiang <phppp@users.sourceforge.net>
  * @version         $Id: editor_registry.php 8066 2011-11-06 05:09:33Z beckmi $
  */
-
 return $config = array(
         "name"      =>  "tinymce4",
         "class"     =>  "XoopsFormTinymce4",
@@ -19,4 +18,3 @@ return $config = array(
         "order"     =>  5,
         "nohtml"    =>  0
     );
-?>
