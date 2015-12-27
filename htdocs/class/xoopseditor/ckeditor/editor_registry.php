@@ -28,4 +28,3 @@ return $config = array(
         "order"     =>  3,
         "nohtml"    =>  0
     );
-?>
