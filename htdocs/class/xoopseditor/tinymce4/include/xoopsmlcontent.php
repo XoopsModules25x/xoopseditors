@@ -1,4 +1,5 @@
 <?php
+
 /**
  *  TinyMCE adapter for XOOPS
  *
@@ -24,4 +25,3 @@ if ( defined('EASIESTML_LANGS') && defined('EASIESTML_LANGNAMES') ) {
 }
 
 return false;
-?>

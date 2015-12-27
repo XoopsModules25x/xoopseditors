@@ -1,4 +1,5 @@
 <?php
+
 /*
  You may not change or alter any portion of this comment or credits
  of supporting developers from this source code or any supporting source code
@@ -29,19 +30,17 @@ class TinyMCE
     var $config = array();
     var $setting = array();
 
-
   /**
   * PHP 5 Constructor
   *
   * @param    string    $config   The configuration
   **/
+
     function __construct($config)
      {
         $this->setConfig($config);
         $this->rootpath = $this->config["rootpath"] . "/tinymce/js/tinymce";
     }
-
-
 
   /**
   * Creates one instance of the tinyMCE object
@@ -49,6 +48,7 @@ class TinyMCE
   * @param    array     $config     The configuration
   * @return   object    $instance   The instance of tinyMCE object
   **/
+
     function &instance( $config )
     {
         static $instance;
@@ -60,8 +60,6 @@ class TinyMCE
 
         return $instance;
     }
-
-
 
     function setConfig( $config )
     {
@@ -79,14 +77,12 @@ class TinyMCE
     {
         // list of configured options
         $configured = array();
-
         $this->setting["selector"] = "textarea";
         $this->setting["theme"] = "modern";
 
-
         // Load default settings
         if ( ! ($this->setting = @include( $GLOBALS['xoops']->path( "var/configs/tinymce.php" ) ) ) ) {
-            $this->setting = include dirname(__FILE__) . "/settings.php";
+            $this->setting = include __DIR__ . "/settings.php";
         }
 
         // get editor language (from ...)
@@ -129,7 +125,7 @@ class TinyMCE
             }
             $i = 0;
             foreach ($this->config["buttons"] as $button) {
-                $i++;
+                ++$i;
                 if (isset($button["before"])) {
                     $this->setting["theme_" . $this->setting["theme"] . "_buttons{$i}_add_before"] = $button["before"];
                 }
@@ -181,7 +177,7 @@ class TinyMCE
                 $configured[] = "fonts";
             }
 
-            for ($i=1 ; $i <= 4 ; $i++ ) {
+            for ($i=1 ; $i <= 4 ; ++$i ) {
                 $buttons = array();
                 if ( isset($this->setting["theme_" . $this->setting["theme"] . "_buttons{$i}"]) ) {
                     $checklist = explode(",", $this->setting["theme_" . $this->setting["theme"] . "_buttons{$i}"] );
@@ -232,6 +228,7 @@ class TinyMCE
         if (!empty($this->config["plugins"])) {
             $plugins = array_merge($plugins, $this->config["plugins"]);
         }
+
         return $plugins;
     }
 
@@ -246,6 +243,7 @@ class TinyMCE
                 }
             }
         }
+
         return $xoopsPlugins;
     }
 
@@ -268,6 +266,7 @@ class TinyMCE
                 $css = array_merge( $css, $this->loadCss( $css_import) );
             }
         }
+
         return $css;
     }
 
@@ -296,17 +295,68 @@ class TinyMCE
                 tinyMCE.init({
             ';
 
-      foreach ($this->setting as $key => $val) {
-          $ret .= $key . ":";
-          if ($val === true) {
-              $ret.= "true,";
-          } elseif ($val === false) {
-              $ret .= "false,";
-          } else {
-              $ret .= "'{$val}',";
-          }
-          $ret .= "\n";
-      }
+foreach ($this->setting as $key => $val) {
+         $ret .= $key . ":";
+         if ($val === true) {
+             $ret.= "true,";
+         } elseif ($val === false) {
+             $ret .= "false,";
+         } else {
+             $ret .= "'{$val}',";
+         }
+         $ret .= "\n";
+     }
+
+//   Ajout alain01 tinymce v4
+
+    $chemin_array=parse_url(XOOPS_URL);
+    $chemin_scheme =  $chemin_array["scheme"]; // http
+    $chemin_host =  $chemin_array["host"]; // www.example.com  or // localhost
+//  $chemin_path =  $chemin_array["path"]; // /myweb1
+    if (!isset($chemin_array['path'])){
+            $chemin_path = '';
+    } else    {
+            $chemin_path =  $chemin_array["path"];
+    }
+
+//   $ret .='language_url : "'.$chemin_path.'/class/xoopseditor/tinymce4/tinymce/js/tinymce/langs/fr_FR.js",';
+
+    $ret .= 'external_plugins: {';
+    $ret .= '"qrcode": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/qrcode/plugin.min.js",';
+    $ret .= '"youtube": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/youtube/plugin.min.js",';
+    $ret .= '"alignbtn": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/alignbtn/plugin.min.js",';
+    $ret .= '"chartextbtn": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/chartextbtn/plugin.min.js",';
+    $ret .= '"xoops_code": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/xoops_code/plugin.min.js",';
+    $ret .= '"xoops_quote": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/xoops_quote/plugin.min.js",';
+    $ret .= '"xoops_tagextgal": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/xoops_tagextgal/plugin.min.js",';
+
+    $ret .= '"codemirror": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/codemirror/plugin.min.js",';
+
+    $ret .= '"filemanager": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/filemanager/plugin.min.js",';
+    $ret .= '"responsivefilemanager": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/responsivefilemanager/plugin.min.js",';
+    $ret .= '},';
+
+$ret .= 'codemirror: {
+    indentOnInit: true,
+    path: "CodeMirror",
+    config: {
+       mode: "application/x-httpd-php",
+       lineNumbers: false
+    },
+    jsFiles: [
+       "mode/clike/clike.js",
+       "mode/php/php.js"
+    ]
+  },';
+
+    $ret .= "\n";
+
+    $ret .= '"external_filemanager_path": "'.$chemin_path.'/class/xoopseditor/tinymce4/external_plugins/filemanager/",';
+    $ret .= "\n";
+
+    $ret .='templates: "'.$chemin_path.'/uploads/filemanager/templates/liste-templates.js",';
+    $ret .= "\n";
+// fin ajout alain01
 
     $ret .= 'relative_urls : false,
                 remove_script_host : false, tinymceload : "1"});
@@ -320,6 +370,7 @@ class TinyMCE
                 }
                 </script>
             ';
+
     return $ret ;
   }
 }
