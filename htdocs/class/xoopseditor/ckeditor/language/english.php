@@ -15,4 +15,3 @@
  */
 define("_XOOPS_EDITOR_CKEDITOR", "CK Editor");
 define("_XOOPS_EDITOR_CKEDITOR_LANGUAGE", "en");
-?>
