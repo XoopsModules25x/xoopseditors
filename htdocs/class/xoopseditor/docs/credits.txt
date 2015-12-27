@@ -1,0 +1,11 @@
+CREDITS
+===============
+
+The individual Text Editors have been ported to XOOPS by several XOOPS contributors, who we would like to thank for it.
+
+We also would like to thank the original creators of all the individal Text Editors for creating them, and for releasing them as Open Source!
+
+Happy Xoopsing and may the Source be with you! 
+
+
+

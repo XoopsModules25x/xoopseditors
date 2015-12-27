@@ -1,0 +1,8 @@
+INSTALL/UNISTALL
+=================
+
+No special measures necessary. Just copy copy the individual Editors to your XOOPS Installation, to the /class/xoopseditor folder. 
+To make the editor visible in your modules, please:
+
+a) update the System module in: Admin -> System Module -> Modules.
+b) update the individual modules
