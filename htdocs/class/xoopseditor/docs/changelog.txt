@@ -1,0 +1,7 @@
+CHANGELOG
+========================================
+
+2015-12-26
+---------------------------------------
+
+- copied manually text editors from SVN to GitHub (Mamba)
