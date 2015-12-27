@@ -1,0 +1,4 @@
+20081217 Updated to Xinha v0.95
+        + Xoopsquotecode plugin (to do)
+        + Xoopsemotions plugin (to do)
+        + Xoopsimagemanager (to do)
