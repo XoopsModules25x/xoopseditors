@@ -156,7 +156,7 @@ class FCKeditor
 	public function CreateHtml()
 	{
 		// $HtmlValue = htmlspecialchars( $this->Value ) ; 
-		$myts =& MyTextSanitizer::getInstance();  // add by kris
+		$myts = MyTextSanitizer::getInstance();  // add by kris
 		$HtmlValue = $myts->htmlSpecialChars( $this->Value ) ; // add by kris
 
 		$Html = '' ;

@@ -47,13 +47,13 @@ if (!empty($_GET['op'])) {
     $op = trim( $_POST['op'] );
 }
 
-$myts =& MyTextSanitizer::getInstance();
+$myts = MyTextSanitizer::getInstance();
 
 if ( $admin && $op == 'SmilesAdd' ) {
     if (!$GLOBALS['xoopsSecurity']->check()) {
         redirect_header($current_file, 3, implode('<br />', $GLOBALS['xoopsSecurity']->getErrors()));
     }
-    $db =& Database::getInstance();
+    $db = Database::getInstance();
     include_once XOOPS_ROOT_PATH.'/class/uploader.php';
     $uploader = new XoopsMediaUploader(XOOPS_UPLOAD_PATH, array('image/gif', 'image/jpeg', 'image/pjpeg', 'image/x-png', 'image/png'), 100000, 120, 120);
     $uploader->setPrefix('smil');

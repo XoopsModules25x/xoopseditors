@@ -282,7 +282,7 @@ function news_CreateMetaDatas($story = null)
 {
 	global $xoopsConfig, $xoTheme, $xoopsTpl;
 	$content = '';
-	$myts =& MyTextSanitizer::getInstance();
+	$myts = MyTextSanitizer::getInstance();
 	include_once XOOPS_ROOT_PATH.'/modules/news/class/class.newstopic.php';
 
 	/**
@@ -405,7 +405,7 @@ function news_createmeta_keywords($content)
 		$limit = $xoopsConfigSearch['keyword_min'];
 		$_SESSION['news_keywords_limit'] = $limit;
 	}
-	$myts =& MyTextSanitizer::getInstance();
+	$myts = MyTextSanitizer::getInstance();
 	$content = str_replace ("<br />", " ", $content);
 	$content= $myts->undoHtmlSpecialChars($content);
 	$content= strip_tags($content);
@@ -598,7 +598,7 @@ function news_make_infotips($text)
 {
 	$infotips = news_getmoduleoption('infotips');
 	if($infotips>0) {
-		$myts =& MyTextSanitizer::getInstance();
+		$myts = MyTextSanitizer::getInstance();
 		return $myts->htmlSpecialChars(xoops_substr(strip_tags($text),0,$infotips));
 	}
 }
