@@ -265,7 +265,7 @@ class XoopsFormCodemirror3 extends XoopsEditor
 
         // Set no common settings
         if ($decode) {
-            $ts =& MyTextSanitizer::getInstance();
+            $ts = MyTextSanitizer::getInstance();
             $value = $ts->undoHtmlSpecialChars( $this->getValue() );
         } else {
             $value = $this->getValue();

@@ -321,7 +321,7 @@ if ( ($isadmin) || ($catreadcount > 0) || ($catwritecount > 0) ) {
             redirect_header($current_file . "?target=" . $target, 3, _MD_SCATDELNG);
         }
         $image_handler =& xoops_gethandler("image");
-        $images =& $image_handler->getObjects(new Criteria("imgcat_id", $imgcat_id), true, false);
+        $images = $image_handler->getObjects(new Criteria("imgcat_id", $imgcat_id), true, false);
         $errors = array();
         foreach (array_keys($images) as $i) {
             if (!$image_handler->delete($images[$i])) {
@@ -420,7 +420,7 @@ echo '<div class="panel_wrapper">';
         if (!empty($catreadlist)) {
             echo '<table width="100%" class="outer" cellspacing="1">';
             // get all categories
-            $imagecategories =& $imgcat_handler->getObjects();
+            $imagecategories = $imgcat_handler->getObjects();
             $catcount = count($imagecategories);
             $image_handler =& xoops_gethandler('image');
             for ($i = 0; $i < $catcount; $i++) {
@@ -464,7 +464,7 @@ echo '<div class="panel_wrapper">';
         $start = isset($_GET['start']) ? intval($_GET['start']) : 0;
         $criteria->setStart($start);
         $criteria->setLimit(20);
-        $images =& $image_handler->getObjects($criteria, true, false);
+        $images = $image_handler->getObjects($criteria, true, false);
 
         echo '<a href="' . $current_file . '?target=' . $target . '">' . _MD_IMGMAIN . '</a>&nbsp;<span style="font-weight:bold;">&gt;</span>&nbsp;'.$imagecategory->getVar('imgcat_name');
         echo '<br /><br /><strong>{#xoopsimagebrowser_dlg.select_image}</strong>';

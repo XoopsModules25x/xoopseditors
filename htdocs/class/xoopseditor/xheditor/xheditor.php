@@ -80,7 +80,7 @@ class FormXheditor extends XoopsEditor
         $oXHeditor->js           = $this->js;
         $oXHeditor->langF        = $this->langF;
         if ($decode) {
-            $ts =& MyTextSanitizer::getInstance();
+            $ts = MyTextSanitizer::getInstance();
             $oXHeditor->Value = $ts->undoHtmlSpecialChars( $this->getValue() );
         } else {
             $oXHeditor->Value = $this->getValue();

@@ -86,7 +86,7 @@ class XoopsFormFckeditor extends XoopsEditor
         $oFCKeditor->Height        = $this->height;
 	$oFCKeditor->Config['EditorAreaCSS'] = xoops_getcss(); // add by kris
         if ($decode) {
-            $ts =& MyTextSanitizer::getInstance();
+            $ts = MyTextSanitizer::getInstance();
             $oFCKeditor->Value = $ts->undoHtmlSpecialChars( $this->getValue() );
         } else {
             $oFCKeditor->Value = $this->getValue();
