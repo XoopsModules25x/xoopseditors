@@ -8,10 +8,11 @@
  * @subpackage  xoopseditor
  * @since       2.3.0
  * @author      Taiwen Jiang <phppp@users.sourceforge.net>
- * @version     $Id: english.php 443 2010-11-10 05:59:53Z kris_fr $
+ * @version     $Id: english.php 760 2012-05-18 12:16:37Z kris_fr $
  */
 /*
  * Associated with editor_registry.php
  */
 define("_XOOPS_EDITOR_CKEDITOR", "CK Editor");
 define("_XOOPS_EDITOR_CKEDITOR_LANGUAGE", "en");
+?>

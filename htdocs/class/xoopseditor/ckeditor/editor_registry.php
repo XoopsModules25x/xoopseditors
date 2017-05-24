@@ -18,7 +18,7 @@
  * @subpackage      editor
  * @since           2.3.0
  * @author          Taiwen Jiang <phppp@users.sourceforge.net>
- * @version         $Id: editor_registry.php 436 2010-10-26 21:24:01Z kris_fr $
+ * @version         $Id: editor_registry.php 760 2012-05-18 12:16:37Z kris_fr $
  */
 
 return $config = array(
@@ -28,3 +28,4 @@ return $config = array(
         "order"     =>  3,
         "nohtml"    =>  0
     );
+?>
